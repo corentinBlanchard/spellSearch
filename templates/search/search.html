@@ -15,6 +15,14 @@
               <div class="card-header">
 
                   <h2>Mes sorts</h2>
+                  
+
+                  <div>
+
+                    <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-add">New Search<i
+        class="fa fa-search" aria-hidden="true" style="color: rgb(0, 255, 13);"></i></a>
+        
+                </div>
 
               </div>
 
@@ -62,4 +70,52 @@
 
 
 
+  <div class="modal fade" id="modal-add">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <form method="POST" class="form-signin" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="modal-header">
+
+                    <h5 class="modal-title">Make a new Search</h5>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                        <span aria-hidden="true">&times;</span>
+          
+                    </button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <div></div>
+                    {{ form.name|as_crispy_field }}
+                    {{ form.is_verbal|as_crispy_field }}
+                    {{ form.is_somatic|as_crispy_field }}
+                    {{ form.is_material|as_crispy_field }}
+                    {{ form.max_level|as_crispy_field }}
+
+
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Return</button>
+                    <button type="submit" class="btn btn-success">Search</button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
 {% endblock content %}

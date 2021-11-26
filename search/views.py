@@ -5,10 +5,32 @@ from django.views.generic.list import ListView
 from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Classes, Monster, Sorts
+from .forms import SearchForm
+
 
 def search(response):
-    sorts_list = Sorts.objects.all()
+
     render_sorts_list = []
+    if(response.method == "POST"):
+        form = SearchForm(response.POST, response.FILES)
+        if form.is_valid():
+            data = form.cleaned_data
+            print(data)
+            sorts_list = Sorts.objects.filter(name__contains = data["name"])
+            if data["is_verbal"]:
+                sorts_list = sorts_list.filter(is_verbal = True)
+            if data["is_somatic"]:
+                sorts_list = sorts_list.filter(is_somatic = True)
+            if data["is_material"]:
+                sorts_list = sorts_list.filter(is_material = True)
+            sorts_list = sorts_list.filter(max_level__lte = data["max_level"])
+
+            
+    else : 
+
+        sorts_list = Sorts.objects.all()
+        
+    form = SearchForm()
     for sort in sorts_list:
         component = ""
         classes = ""
@@ -38,4 +60,4 @@ def search(response):
         render_sorts_list.append(thisdict)
         
 
-    return render(response, "../templates/search/search.html", {"sorts_list": render_sorts_list})
+    return render(response, "../templates/search/search.html", {"sorts_list": render_sorts_list, "form": form})
