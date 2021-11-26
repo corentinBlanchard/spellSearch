@@ -1,0 +1,46 @@
+@import 'https://fonts.googleapis.com/css?family=Oswald';
+
+
+
+.vol-contener{
+    font-family: 'Oswald', Impact,sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+td {
+    max-width: 300px;
+    overflow: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+td:hover {
+    overflow: visible;
+    white-space: normal;
+    height: auto;
+    /* just added this line */
+}
+
+.modal-content {
+    word-wrap: break-word;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Oswald',Impact, sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 5vw;
+    letter-spacing: 6px;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Oswald',Impact, sans-serif;
+}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}{% load static %} 
+
+{% load crispy_forms_tags %} {% block css %}
+
+<link href="{% static 'search.css' %}" rel="stylesheet"> 
+
+{% endblock %} {% block content %}
+    
+<div class="container" style="display: flex;">
+
+
+      <div class="card" style="width: 100%; text-align: center;">
+
+          <div class="header-list">
+              <div class="card-header">
+
+                  <h2>Mes sorts</h2>
+
+              </div>
+
+          </div>
+
+          <div class="card-body">
+
+              <table class="table table-striped table-hover table-bordered " id="search-table">
+
+                  <thead>
+
+                      <tr>
+                          <th scope="col">Name</th>
+                          <th scope="col">Component</th>
+                          <th scope="col">Max_level</th>
+                          <th scope="col">Classes</th>
+                          <th scope="col">Monsters</th>
+                      </tr>
+
+                  </thead>
+
+                  <tbody>
+
+                    {% for object in sorts_list %}
+                    <tr>
+                        <td>{{object.name}}</td>
+                        <td>{{object.components}}</td>
+                        <td>{{object.max_level}}</td>
+                        <td>{{object.classes}}</td>
+                        <td>{{object.monsters}}</td>
+                    </tr>
+                    {% endfor %}
+
+                  </tbody>
+
+              </table>
+
+          </div>
+
+          <div class="card-footer">
+          </div>
+
+
+  </div>
+
+
+
+{% endblock content %}
