@@ -13,4 +13,12 @@ Install crispyforms :
 pip install django-crispy-forms
 ```
 
+Run the program : 
+
+```
+python manage.py runserver 8080
+```
+
+Enjoy it
+
 
