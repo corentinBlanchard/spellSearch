@@ -24,6 +24,8 @@ def search(response):
             if data["is_material"]:
                 sorts_list = sorts_list.filter(is_material = True)
             sorts_list = sorts_list.filter(max_level__lte = data["max_level"])
+            for d in data["classes"]:
+                sorts_list = sorts_list.filter(classes__id = d)
 
             
     else : 
@@ -55,7 +57,8 @@ def search(response):
             "components": component,
             "max_level": sort.max_level,
             "classes": classes,
-            "monsters": monsters
+            "monsters": monsters,
+            "url": sort.url
             }
         render_sorts_list.append(thisdict)
         

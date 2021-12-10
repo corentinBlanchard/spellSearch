@@ -40,6 +40,7 @@
                           <th scope="col">Max_level</th>
                           <th scope="col">Classes</th>
                           <th scope="col">Monsters</th>
+                          <th scope="col">Url</th>
                       </tr>
 
                   </thead>
@@ -53,6 +54,10 @@
                         <td>{{object.max_level}}</td>
                         <td>{{object.classes}}</td>
                         <td>{{object.monsters}}</td>
+                        <td>
+                            <a href="{{object.url}}"><i
+                                class="fa fa-search" aria-hidden="true" style="color: rgb(0, 140, 255);"></i></a>
+                            </td>
                     </tr>
                     {% endfor %}
 
@@ -99,6 +104,7 @@
                     {{ form.is_somatic|as_crispy_field }}
                     {{ form.is_material|as_crispy_field }}
                     {{ form.max_level|as_crispy_field }}
+                    {{ form.classes|as_crispy_field }}
 
 
 

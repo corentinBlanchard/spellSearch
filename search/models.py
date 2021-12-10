@@ -18,3 +18,4 @@ class Sorts(models.Model):
     classes = models.ManyToManyField(Classes)
     max_level = models.IntegerField(default=0)
     monsters = models.ManyToManyField(Monster)
+    url = models.CharField(max_length=200, default=None)
